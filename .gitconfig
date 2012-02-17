@@ -1,0 +1,14 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%C(yellow)%h %C(white)%ad %C(red)|%C(white) %s%d [%C(green)%an%C(white)]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[user]
+	name = Michael Blumberg
+	email = mblum14@gmail.com
+[core]
+	audotcrlf = input
+	safecrlf = true
