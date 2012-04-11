@@ -1,7 +1,1 @@
-*
-!.gitignore
-!.bashrc
-!.bash_profile
-!.gvimrc
-!.gitconfig
-!README
+Bash-Git-Prompt/*
