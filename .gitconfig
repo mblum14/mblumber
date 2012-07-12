@@ -23,7 +23,7 @@
 	st = status
 	br = branch
 	prune = remote prune origin[user]
-	hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%c(green bld)%an%C(white bold)]\" --graph --date=short
+	hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
 [user]
