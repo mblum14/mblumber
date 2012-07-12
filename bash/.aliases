@@ -13,7 +13,13 @@ alias .....='cd ../../../..'
 # listings
 alias la='ls -lAGFh'
 alias lc='ls -aCF'
-alias lm='ls -lAGFh | more'           # pipe through 'more'
+alias lm='ls -lAGFh | more'          
+
+# bundler
+alias be="bundle exec"
+
+# rails
+alias rc='rails console'
 
 # configuration shortcuts
 alias bash_profile='vi ~/.config/.bash_profile && source ~/.config/.bash_profile'
