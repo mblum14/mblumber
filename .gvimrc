@@ -20,7 +20,7 @@ set sidescroll=5
 set splitbelow splitright
 
 " Cursor highlights
-set cursoeline
+set cursorline
 
 " Search
 set hlsearch

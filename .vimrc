@@ -1,8 +1,7 @@
-s edited, reload it
 autocmd! bufwritepost _vimrc source ~/../tools/Vim/_vimrc
 
 " Colors
-colorscheme moria
+colorscheme desert
 set background=dark
 syntax on
 set nu
@@ -20,7 +19,7 @@ set sidescroll=5
 set splitbelow splitright
 
 " Cursor highlights
-set cursoeline
+set cursorline
 
 " Search
 set hlsearch
