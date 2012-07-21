@@ -77,3 +77,4 @@ set guioptions+=b
 set guioptions-=t
 set mat=2
 set nocompatible
+set ar
