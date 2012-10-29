@@ -57,17 +57,6 @@ let mapleader = "'"
 :nnoremap <silent> <C-Right> :tabnext<CR>
 :nnoremap <silent> <C-Left> :tabprevious<CR>
 
-" fuzzyfinder
-map ,f :FuzzyFinderFile<CR>
-map ,b :FuzzyFinderBuffer<CR>
-map <leader>t :fuzzyFinderTextMate<CR>
-
-" MiniBuf
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
 " Misc
 behave mswin
 set formatoptions=tcqr

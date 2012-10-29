@@ -61,7 +61,6 @@ let mapleader = "'"
 " fuzzyfinder
 map ,f :FuzzyFinderFile<CR>
 map ,b :FuzzyFinderBuffer<CR>
-map <leader>t :fuzzyFinderTextMate<CR>
 
 " MiniBuf
 let g:miniBufExplMapWindowNavVim = 1
