@@ -95,12 +95,11 @@ set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Colors == ========================
 set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=246
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=246
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
 colorscheme solarized
-set nu
 set syntax=automatic
 
 " ================ Scrolling ========================
@@ -108,7 +107,6 @@ set syntax=automatic
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1"
-
 
 " ================ Mappings =========================
 let mapleader = ","
