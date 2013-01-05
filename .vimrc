@@ -50,7 +50,7 @@ set noswapfile
 set nowritebackup
 
 " Mappings
-let mapleader = "'"
+let mapleader = ","
 :imap <C-t> <Esc>:tabnew<CR>
 :imap <C-space> <C-n>
 :imap jj <Esc>
@@ -62,9 +62,9 @@ let mapleader = "'"
 :nmap <C-t> :tabnew<CR>
 :nnoremap <silent> <C-Right> :tabnext<CR>
 :nnoremap <silent> <C-Left> :tabprevious<CR>
-:noremap <leader>f <Esc>:CommandT<CR>
-:noremap <leader>b <Esc>:CommandTBuffer<CR>
-:noremap <leader>F <Esc>:CommandTFlush<CR>
+:noremap <leader>f <Esc>:FufFile<CR>
+:noremap <leader>b <Esc>:FufBuffer<CR>
+:noremap <leader>t <Esc>:FufTag<CR>
 
 " Misc
 behave mswin
@@ -74,3 +74,4 @@ set guioptions+=b
 set guioptions-=t
 set mat=2
 set nocompatible
+set ar
