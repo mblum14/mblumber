@@ -1,3 +1,6 @@
+call pathogen#runtime_append_all_bubndles()
+call pathogen#helpers()
+
 autocmd! bufwritepost _vimrc source ~/../tools/Vim/_vimrc
 
 " Colors
@@ -56,6 +59,9 @@ let mapleader = "'"
 :nmap <C-t> :tabnew<CR>
 :nnoremap <silent> <C-Right> :tabnext<CR>
 :nnoremap <silent> <C-Left> :tabprevious<CR>
+:noremap <leader>f <Esc>:CommandT<CR>
+:noremap <leader>b <Esc>:CommandTBuffer<CR>
+:noremap <leader>F <Esc>:CommandTFlush<CR>
 
 " Misc
 behave mswin
