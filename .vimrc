@@ -1,5 +1,4 @@
-call pathogen#runtime_append_all_bubndles()
-call pathogen#helpers()
+call pathogen#infect()
 
 autocmd! bufwritepost _vimrc source ~/../tools/Vim/_vimrc
 
