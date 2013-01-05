@@ -10,7 +10,10 @@
 	local = green
 	remote = red
 [color "diff"]
-
+  meta = yellow bold
+  frat = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
 	added = green bold
 	changed = yellow bold
@@ -18,14 +21,71 @@
 	deleted = red bold
 	branch = yellow bold
 [alias]
-	co = checkout
-	ci = commit
-	st = status
+  # add
+  a = add
+  chunkeyadd = add --patch
+
+  # branch
 	br = branch
-	prune = remote prune origin[user]
+
+  # commit
+	c = commit -m
+  ca = commit -am
+  ci = commit
+  ammend = commit --amend
+  ammmend = commit --amend
+  
+  # checkout
+	co = checkout
+  nb = checkout -b
+
+  # cherry-pick
+  cp = cherry-pick -x
+
+  # diff
+  d = diff
+  dc = diff --cached
+  last = diff HEAD^
+  
+  # log
 	hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
+
+  # remote
+  r = remote -v
+	prune = remote prune origin[user]
+
+  # rebase
+  rc = rebase --continue
+  rs = rebase --skip
+  ra = rebase --abort
+
+  # reset
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  filelog = log -u
+  mt = mergetool
+
+  # stash
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+
+  # status
+	st = status
+
+  # tag
+  t = tag -n
+
 	type = cat-file -t
 	dump = cat-file -p
+[merge]
+  summary = true
+  verbosity = 1
+[apply]
+  whitespace = nowarn
+[push]
+  default = tracking
 [user]
 	name = Michael Blumberg
 	email = mblum14@gmail.com
@@ -36,7 +96,8 @@
 
 [apply]
 	whitespace = fix
-
+[diff]
+  mnemonicprefix = true
 [core]
 	editor = gvim --nofork
 	all = auto[core "auto"]
