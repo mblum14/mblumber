@@ -1,42 +1,42 @@
 [color]
-	ui=auto
-	pager=true
-	interactive=auto
-	branch=auto
-	diff=auto
-	status=auto
+  ui=auto
+  pager=true
+  interactive=auto
+  branch=auto
+  diff=auto
+  status=auto
 [color "branch"]
-	current = green bold
-	local = green
-	remote = red
+  current = green bold
+  local = green
+  remote = red
 [color "diff"]
   meta = yellow bold
   frat = magenta bold
   old = red bold
   new = green bold
 [color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = magenta bold
-	deleted = red bold
-	branch = yellow bold
+  added = green bold
+  changed = yellow bold
+  untracked = magenta bold
+  deleted = red bold
+  branch = yellow bold
 [alias]
   # add
   a = add
   chunkeyadd = add --patch
 
   # branch
-	br = branch
+  br = branch
 
   # commit
-	c = commit -m
+  c = commit -m
   ca = commit -am
   ci = commit
   ammend = commit --amend
   ammmend = commit --amend
-  
+
   # checkout
-	co = checkout
+  co = checkout
   nb = checkout -b
 
   # cherry-pick
@@ -46,13 +46,13 @@
   d = diff
   dc = diff --cached
   last = diff HEAD^
-  
+
   # log
-	hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
+  hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
 
   # remote
   r = remote -v
-	prune = remote prune origin[user]
+  prune = remote prune origin[user]
 
   # rebase
   rc = rebase --continue
@@ -72,32 +72,27 @@
   sd = stash drop
 
   # status
-	st = status
+  st = status
 
   # tag
   t = tag -n
 
-	type = cat-file -t
-	dump = cat-file -p
+  type = cat-file -t
+  dump = cat-file -p
 [merge]
   summary = true
   verbosity = 1
 [apply]
-  whitespace = nowarn
+  whitespace = fix
 [push]
   default = tracking
 [user]
-	name = Michael Blumberg
-	email = mblum14@gmail.com
-
+  name = Michael Blumberg
+  email = mblum14@gmail.com
 [core]
-	audotcrlf = input
-	safecrlf = true
-
-[apply]
-	whitespace = fix
+  audotcrlf = input
+  all = auto[core "auto"]
+  editor = gvim --nofork
+  safecrlf = true
 [diff]
   mnemonicprefix = true
-[core]
-	editor = gvim --nofork
-	all = auto[core "auto"]
