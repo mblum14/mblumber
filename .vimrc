@@ -4,8 +4,12 @@ call pathogen#helpers()
 autocmd! bufwritepost _vimrc source ~/../tools/Vim/_vimrc
 
 " Colors
-colorscheme desert
 set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=246
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
 syntax on
 set nu
 set syntax=automatic
