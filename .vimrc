@@ -22,13 +22,15 @@ set autoread
 set hidden
 set splitbelow splitright
 set cursorline
-
-set formatoptions=tcqr
-set guioptions+=b
-set guioptions-=t
+set laststatus=2
 set mat=2
 set nocompatible
 set ar
+
+"set formatoptions=tcqr
+
+" ================ Git branch to status line  =======
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " ================ Search Settings  =================
 
