@@ -123,6 +123,10 @@ let mapleader = ","
 :nmap <C-t> :tabnew<CR>
 :nnoremap <silent> <C-Right> :tabnext<CR>
 :nnoremap <silent> <C-Left> :tabprevious<CR>
+
+" FuzzyFinder
 :noremap <leader>f <Esc>:FufFile<CR>
 :noremap <leader>b <Esc>:FufBuffer<CR>
 :noremap <leader>t <Esc>:FufTag<CR>
+" Tagbar
+  noremap <leader>T <Esc>:TagbarToggle<CR>
