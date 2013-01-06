@@ -55,3 +55,6 @@
 [submodule "vim/bundle/greplace"]
 	path = vim/bundle/greplace
 	url = https://github.com/skwp/greplacevim.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
