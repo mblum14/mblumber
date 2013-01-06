@@ -130,3 +130,10 @@ let mapleader = ","
 :noremap <leader>t <Esc>:FufTag<CR>
 " Tagbar
   noremap <leader>T <Esc>:TagbarToggle<CR>
+"vim-conque
+" Cmd-Shift-R for RSpec
+nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
+" Cmd-Shift-L for RSpec Current Line
+nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
+" ,Cmd-R for Last conque command
+nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>

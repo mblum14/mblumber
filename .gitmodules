@@ -61,3 +61,12 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-conque"]
+	path = vim/bundle/vim-conque
+	url = https://github.com/skwp/vim-conque.git
+[submodule "vim/bundle/vim-ruby-conque"]
+	path = vim/bundle/vim-ruby-conque
+	url = https://github.com/skwp/vim-ruby-conque.git
+[submodule "vim/bundle/specky"]
+	path = vim/bundle/specky
+	url = https://github.com/vim-scripts/Specky.git

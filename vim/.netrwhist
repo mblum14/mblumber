@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/mblumber/projects/railscasts/240-search-sort-paginate-with-ajax/store/app/models'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/mblumber/projects/railscasts/240-search-sort-paginate-with-ajax'
+let g:netrw_dirhist_2='/Users/mblumber'
+let g:netrw_dirhist_3='/Users/mblumber/projects'
+let g:netrw_dirhist_4='/Users/mblumber/projects/railscasts'
+let g:netrw_dirhist_5='/Users/mblumber/projects/railscasts/016-virtual-attributes-revised'
+let g:netrw_dirhist_6='/Users/mblumber/projects/railscasts/016-virtual-attributes-revised/store-before'
+let g:netrw_dirhist_7='/Users/mblumber/projects/railscasts/016-virtual-attributes-revised/store-before/app'
+let g:netrw_dirhist_8='/Users/mblumber/projects/railscasts/016-virtual-attributes-revised/store-before/app/controllers'
