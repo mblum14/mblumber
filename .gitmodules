@@ -73,3 +73,6 @@
 [submodule "vim/bundle/autotag"]
 	path = vim/bundle/autotag
 	url = https://github.com/vim-scripts/AutoTag.git
+[submodule "vim/bundle/vim-ruby-minitest"]
+	path = vim/bundle/vim-ruby-minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
