@@ -28,4 +28,4 @@ alias aliases='vim ~/.bin/bash/.aliases && source ~/.config/.bashrc'
 alias config='vim ~/.bin/bash/.config && source ~/.config/.bashrc'
 alias env='vim ~/.bin/bash/.env && source ~/.config/.bashrc'
 alias gvimrc='vim ~/.bin/.gvimrc'
-
+alias vimrc='vim ~/.bin/.vimrc'

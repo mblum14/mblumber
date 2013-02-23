@@ -6,8 +6,8 @@ set nocompatible
 " This loads all the plugins in ~/.vim/bundle
 " Use tpope's pathogen plugin to manage all other plugins
 
-call pathogen#infect()
-call pathogen#helptags()
+""call pathogen#infect()
+""call pathogen#helptags()
 
 " ================ General Config ====================
 
@@ -30,7 +30,7 @@ set ar
 "set formatoptions=tcqr
 
 " ================ Git branch to status line  =======
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+""set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " ================ Search Settings  =================
 
