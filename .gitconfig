@@ -32,8 +32,8 @@
   c = commit -m
   ca = commit -am
   ci = commit
+  amend = commit --amend
   ammend = commit --amend
-  ammmend = commit --amend
 
   # checkout
   co = checkout
@@ -92,7 +92,7 @@
 [core]
   audotcrlf = input
   all = auto[core "auto"]
-  editor = gvim --nofork
+  editor = vim --nofork
   safecrlf = true
 [diff]
   mnemonicprefix = true
