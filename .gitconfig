@@ -49,7 +49,10 @@
 
   # log
   hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
-
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  changelog = log --pretty=format:\" * %s\"
+  review = log -p -b
+  
   # remote
   r = remote -v
   prune = remote prune origin[user]
