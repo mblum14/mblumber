@@ -11,9 +11,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
  
 # listings
-alias la='ls -lAGFh'
+alias la='ls -lAFh'
 alias lc='ls -aCF'
-alias lm='ls -lAGFh | more'          
+alias lm='ls -lAFh | more'
 
 # bundler
 alias be="bundle exec"
