@@ -25,12 +25,10 @@ set cursorline
 set laststatus=2
 set mat=2
 set nocompatible
+set mousehide
 set ar
-
-"set formatoptions=tcqr
-
-" ================ Git branch to status line  =======
-""set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+        " Always switch to the current file directory
 
 " ================ Search Settings  =================
 
@@ -71,9 +69,10 @@ filetype indent on
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
-set listchars+=extends:> 
+set listchars+=extends:>
 set nowrap
 set linebreak
+set nojoinspaces
 
 " ================ Folds ============================
 
@@ -95,13 +94,38 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
-" ================ Colors == ========================
+" ================ Colors ===========================
 set background=dark
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=246
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
+let g:solarized_termtrans=1
+let g:solarized_termcolors=246
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 set syntax=automatic
+highlight clear SignColumn
+highlight clear LineNr
+
+" ================ GUI ==============================
+
+" GVIM- (here instead of .gvimrc)
+if has('gui_running')
+    set guioptions-=T           " Remove the toolbar
+    set lines=40                " 40 lines of text instead of 24
+    if has("gui_gtk2")
+        set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+    elseif has("gui_mac")
+        set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+    elseif has("gui_win32")
+        set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+    endif
+    if has('gui_macvim')
+        set transparency=5      " Make the window slightly transparent
+    endif
+else
+    if &term == 'xterm' || &term == 'screen'
+        set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    endif
+    "set term=builtin_ansi       " Make arrow and other keys work
+endif
 
 " ================ Scrolling ========================
 
@@ -129,10 +153,35 @@ let mapleader = ","
 :noremap <leader>t <Esc>:FufTag<CR>
 " Tagbar
   noremap <leader>T <Esc>:TagbarToggle<CR>
-"vim-conque
-" Cmd-Shift-R for RSpec
-nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
-" Cmd-Shift-L for RSpec Current Line
-nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
-" ,Cmd-R for Last conque command
-nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>
+
+" ================ Plugins ==========================
+
+" vim-airline {
+    " Set configuration options for the statusline plugin vim-airline.
+    " Use the powerline theme and optionally enable powerline symbols.
+    " To use the symbols , , , , , , and .in the statusline
+    " segments add the following to your .vimrc.before.local file:
+    "   let g:airline_powerline_fonts=1
+    " If the previous symbols do not render for you then install a
+    " powerline enabled font.
+    set guifont=PowerlineSymbols
+    "let g:airline_theme = 'powerlineish'
+    let g:airline_powerline_fonts = 1
+    if !exists('g:airline_powerline_fonts')
+        " Use the default set of separators with a few customizations
+        let g:airline_left_sep='›'  " Slightly fancier than '>'
+        let g:airline_right_sep='‹' " Slightly fancier than '<'
+    endif
+" }
+" Fugitive {
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+    nnoremap <silent> <leader>ge :Gedit<CR>
+    nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+" }

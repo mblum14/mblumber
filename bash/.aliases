@@ -25,6 +25,10 @@ alias blur-console='$BLUR_HOME/bin/blur shell'
 alias start-zookeeper='zKServer start'
 alias stop-zookeeper='zKServer stop'
 
+# Hadoop
+alias start-hadoop='/usr/local/Cellar/hadoop/1.2.1/bin/start-all.sh'
+alias stop-hadoop='/usr/local/Cellar/hadoop/1.2.1/bin/stop-all.sh'
+
 # bundler
 alias be="bundle exec"
 
