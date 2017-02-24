@@ -11,23 +11,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
  
 # listings
-alias la='ls -lAFh'
+alias ll='ls -lAFh'
 alias lc='ls -aCF'
 alias lm='ls -lAFh | more'
-
-# BLUR
-alias blur='cd ~/projects/incubator-blur'
-alias start-blur='$BLUR_HOME/bin/start-all.sh'
-alias stop-blur='$BLUR_HOME/bin/stop-all.sh'
-alias blur-console='$BLUR_HOME/bin/blur shell'
-
-# Zookeeper
-alias start-zookeeper='zKServer start'
-alias stop-zookeeper='zKServer stop'
-
-# Hadoop
-alias start-hadoop='/usr/local/Cellar/hadoop/1.2.1/bin/start-all.sh'
-alias stop-hadoop='/usr/local/Cellar/hadoop/1.2.1/bin/stop-all.sh'
 
 # bundler
 alias be="bundle exec"
@@ -41,5 +27,4 @@ alias bashrc='vim ~/.bin/.bashrc && source ~/.config/.bashrc'
 alias aliases='vim ~/.bin/bash/.aliases && source ~/.config/.bashrc'
 alias config='vim ~/.bin/bash/.config && source ~/.config/.bashrc'
 alias env='vim ~/.bin/bash/.env && source ~/.config/.bashrc'
-alias gvimrc='vim ~/.bin/.gvimrc.after'
-alias vimrc='vim ~/.bin/.vimrc.after'
+alias vimrc='vim ~/.bin/.vimrc'

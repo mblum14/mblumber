@@ -1,13 +1,8 @@
 " Use vim settings rather than vi settings.
-" This must be call first
-set nocompatible
-
-" =============== Pathogen Initialization ===============
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-
-""call pathogen#infect()
-""call pathogen#helptags()
+execute pathogen#infect()
+filetype plugin indent on
+set runtimepath^=~/.vim/bundle/node
+au FileType javascript set dictionary+=$HOME/.vim/bundle/vim-node-dict/dict/node.dict
 
 " ================ General Config ====================
 
@@ -64,21 +59,37 @@ set expandtab
 set cindent
 set cinwords=if,else,while,do,for,switch,case,module,def,class,elsif
 
-filetype plugin on
-filetype indent on
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
-
-set listchars+=extends:>
 set nowrap
 set linebreak
 set nojoinspaces
+
+
+" ================ Trailing Whitespace ==============
+set list
+set listchars=
+set listchars+=tab:→\ 
+set listchars+=trail:·
+set listchars+=extends:»              " show cut off when nowrap
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
 
 " ================ Folds ============================
 
 set foldmethod=indent
 set foldnestmax=3
 set nofoldenable
+
+" ================ Window Splitting =================
+
+set splitbelow
+set splitright
+set fillchars=vert:│                  " Vertical sep between windows (unicode)
+set hidden                            " remember undo after quitting
+" reveal already opened files from the quickfix window instead of opening new
+" buffers
+set switchbuf=useopen
+set nostartofline                     " don't jump to col1 on switch buffer
+
 " ================ Completion =======================
 
 set wildmode=list:longest
@@ -92,12 +103,17 @@ set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
+set wildignore+=node_modules/**
 set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.so
+set wildignore+=*.swp
+set wildignore+=*.zip
 
 " ================ Colors ===========================
 set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=246
+colorscheme solarized
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 set syntax=automatic
@@ -133,6 +149,13 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1"
 
+
+" ================ Filetypes =======================
+"
+autocmd BufNewFile,BufRead *.less set filetype=less
+autocmd FileType less set omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
 " ================ Mappings =========================
 let mapleader = ","
 :imap <C-t> <Esc>:tabnew<CR>
@@ -149,26 +172,55 @@ let mapleader = ","
 
 " Tagbar
   noremap <leader>T <Esc>:TagbarToggle<CR>
+  nmap <F8> :TagbarToggle<CR>
+
+" ctrlp
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_cache_dir='$HOME/.cache/ctrlp'
+let g:ctrlp_user_command={'types': {1: ['.git', 'cd %s && git ls-files --cached --others --exclude-standard']}, 'fallback': 'find %s -type f | grep -E -v "undodir|.gem|tmp/"'}
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_root_markers = ['.git', 'svn', '.hg', '.bzr', '_darcs', 'pom.xml', '.bundle', 'node_modules']
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_multi_buffers = 1
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>f :CtrlP<cr>
+nnoremap <leader>m :CtrlPFunky<cr>
+nnoremap <leader>M :execute 'CtrlPFunky ' .expand('<cword>')<cr>
+
+" scratch
+let g:scratch_autohide = $hidden
+let g:scratch_insert_autohide = 1
+
+" Ack
+"if executable('ack')
+  "set grepprg=ack\ --nocolor\ --nogroup\ --ignore-dir=coverage\ --ignore-dir=log
+"endif
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:copen<CR>
 
 " ================ Plugins ==========================
 
 " vim-airline {
-    " Set configuration options for the statusline plugin vim-airline.
-    " Use the powerline theme and optionally enable powerline symbols.
-    " To use the symbols , , , , , , and .in the statusline
-    " segments add the following to your .vimrc.before.local file:
-    "   let g:airline_powerline_fonts=1
-    " If the previous symbols do not render for you then install a
-    " powerline enabled font.
-    set guifont=PowerlineSymbols
-    "let g:airline_theme = 'powerlineish'
+    "set guifont=PowerlineSymbols
+    "let g:airline#extensions#tabline#enabled = 1
+    let g:airline_theme = 'solarized'
     let g:airline_powerline_fonts = 1
-    if !exists('g:airline_powerline_fonts')
-        " Use the default set of separators with a few customizations
-        let g:airline_left_sep='›'  " Slightly fancier than '>'
-        let g:airline_right_sep='‹' " Slightly fancier than '<'
-    endif
+    "if !exists('g:airline_powerline_fonts')
+    "    " Use the default set of separators with a few customizations
+    "    let g:airline_left_sep='›'  " Slightly fancier than '>'
+    "    let g:airline_right_sep='‹' " Slightly fancier than '<'
+    "endif
 " }
+
+" javascript-libraries-syntax {
+    let g:used_javascript_libs = 'underscore,angularjs,requirejs,jasmine,chai'
+" }
+
 " Fugitive {
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -181,3 +233,16 @@ let mapleader = ","
     nnoremap <silent> <leader>ge :Gedit<CR>
     nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }
+
+" neocomplete {
+    let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
+    let g:neocomplete#enable_smart_case = 1 " Use smartcase
+    let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
+" }
+" ================ Autoreload vimrc =================
+augroup reload_vimrc " {
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
