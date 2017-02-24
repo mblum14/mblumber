@@ -44,8 +44,10 @@ set nowb
 " Only works all the time.
 
 silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=/.vim/backups
+set undodir=~/.vim/backups
 set undofile
+set undolevels=1000
+set undoreload=10000
 
 " ================ Indentation ======================
 
@@ -161,9 +163,10 @@ let mapleader = ","
 :imap <C-t> <Esc>:tabnew<CR>
 :imap <C-space> <C-n>
 :imap jj <Esc>
-:imap uu _
-:imap hh =>
-:imap aa @
+:imap Jj <Esc>
+:imap uuu _
+:imap hhh =>
+:imap aaa @
 :map <S-Enter> 0<Esc>
 :map <Enter> o<Esc>
 :nmap <C-t> :tabnew<CR>
@@ -206,8 +209,8 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:copen<CR>
 " ================ Plugins ==========================
 
 " vim-airline {
-    "set guifont=PowerlineSymbols
-    "let g:airline#extensions#tabline#enabled = 1
+    set guifont=PowerlineSymbols
+    let g:airline#extensions#tabline#enabled = 1
     let g:airline_theme = 'solarized'
     let g:airline_powerline_fonts = 1
     "if !exists('g:airline_powerline_fonts')
@@ -217,8 +220,24 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:copen<CR>
     "endif
 " }
 
+" ctrlp {
+    let g:ctrlp_clear_cache_on_exit = 1
+    let g:ctrlp_cache_dir='$HOME/.cache/ctrlp'
+    let g:ctrlp_user_command={'types': {1: ['.git', 'cd %s && git ls-files --cached --others --exclude-standard']}, 'fallback': 'find %s -type f | grep -E -v "undodir|.gem|tmp/"'}
+    let g:ctrlp_switch_buffer = 'Et'
+    let g:ctrlp_root_markers = ['.git', '.svn', '.hg', '.bzr', '_darscs', 'pom.xml', '.bundle', 'node_modules']
+    let g:ctrlp_extensions = ['funky']
+    let g:ctrlp_funky_multi_buffers = 1
+    let g:ctrlp_funky_matchtype = 'path'
+    let g:ctrlp_funky_syntax_highlight = 1
+
 " javascript-libraries-syntax {
     let g:used_javascript_libs = 'underscore,angularjs,requirejs,jasmine,chai'
+" }
+
+" vim-json {
+    let g:vim_json_syntax_conceal = 0
+    let g:vim_json_warnings = 0
 " }
 
 " Fugitive {
