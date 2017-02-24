@@ -6,20 +6,20 @@
   diff=auto
   status=auto
 [color "branch"]
-  current = green bold
+  current = green
   local = green
   remote = red
 [color "diff"]
-  meta = yellow bold
-  frat = magenta bold
-  old = red bold
-  new = green bold
+  meta = yellow
+  fratg = magenta
+  old = red
+  new = green
 [color "status"]
-  added = green bold
-  changed = yellow bold
-  untracked = magenta bold
-  deleted = red bold
-  branch = yellow bold
+  added = green
+  changed = yellow
+  untracked = magenta
+  deleted = red
+  branch = yellow
 [alias]
   # add
   a = add
@@ -37,6 +37,7 @@
 
   # checkout
   co = checkout
+  oc = checkout
   nb = checkout -b
 
   # cherry-pick
@@ -48,7 +49,7 @@
   last = diff HEAD^
 
   # log
-  hist = log --pretty=format:\"%C(yellow bold)%h %C(white bold)%ad %C(red bold)|%C(yellow bold)%d%C(white bold) %s [%C(green bold)%an%C(white bold)]\" --graph --date=short
+  hist = log --pretty=format:\"%C(yellow)%h %C(white)%ad %C(red)|%C(yellow)%d%C(white) %s [%C(green)%an%C(white)]\" --graph --date=short
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   changelog = log --pretty=format:\" * %s\"
   review = log -p -b
@@ -96,6 +97,7 @@
   audotcrlf = input
   all = auto[core "auto"]
   editor = vim --nofork
+  whitespace=fix,-index-with-non-tab,trailing-space,cr-at-eol
   safecrlf = true
 [diff]
   mnemonicprefix = true
