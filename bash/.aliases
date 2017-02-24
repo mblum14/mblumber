@@ -22,9 +22,9 @@ alias be="bundle exec"
 alias rc='bundle exec rails console'
 
 # configuration shortcuts
-alias bash_profile='vim ~/.bin/.bash_profile && source ~/.config/.bash_profile'
-alias bashrc='vim ~/.bin/.bashrc && source ~/.config/.bashrc'
-alias aliases='vim ~/.bin/bash/.aliases && source ~/.config/.bashrc'
-alias config='vim ~/.bin/bash/.config && source ~/.config/.bashrc'
-alias env='vim ~/.bin/bash/.env && source ~/.config/.bashrc'
-alias vimrc='vim ~/.bin/.vimrc'
+alias bash_profile='vim ~/.dotfiles/.bash_profile && source ~/.dotfiles/.bash_profile'
+alias bashrc='vim ~/.dotfiles/.bashrc && source ~/.dotfiles/.bashrc'
+alias aliases='vim ~/.dotfiles/bash/.aliases && source ~/.dotfiles/.bashrc'
+alias config='vim ~/.dotfiles/bash/.config && source ~/.dotfiles/.bashrc'
+alias env='vim ~/.dotfiles/bash/.env && source ~/.dotfiles/.bashrc'
+alias vimrc='vim ~/.dotfiles/.vimrc'

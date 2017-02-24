@@ -1,7 +1,4 @@
-. ~/.bin/bash/.sources
-. ~/.bin/bash/.env
-. ~/.bin/bash/.config
-. ~/.bin/bash/.aliases
-. ~/.profile
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+. ~/.dotfiles/bash/.sources
+. ~/.dotfiles/bash/.env
+. ~/.dotfiles/bash/.config
+. ~/.dotfiles/bash/.aliases
