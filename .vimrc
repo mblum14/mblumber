@@ -1,3 +1,7 @@
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+
 " Use vim settings rather than vi settings.
 execute pathogen#infect()
 filetype plugin indent on
@@ -9,19 +13,20 @@ au FileType javascript set dictionary+=$HOME/.vim/bundle/vim-node-dict/dict/node
 behave mswin
 syntax on
 set number
+set backspace=index,eol,start
 set history=1000
 set showcmd
 set showmode
 set visualbell
 set autoread
+set shell=/bin/bash
+set tags=./tags
 set hidden
+
 set splitbelow splitright
+
 set cursorline
-set laststatus=2
-set mat=2
-set nocompatible
-set mousehide
-set ar
+
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
         " Always switch to the current file directory
 
@@ -118,12 +123,18 @@ colorscheme solarized
 "let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
+let colorcolumn="120"
+highlight colorcolumn guibg=#2c2d27
 set syntax=automatic
 highlight clear SignColumn
 highlight clear LineNr
 
 " ================ GUI ==============================
-
+set laststatus=2
+set mat=2
+set nocompatible
+set mousehide
+set ar
 " GVIM- (here instead of .gvimrc)
 if has('gui_running')
     set guioptions-=T           " Remove the toolbar
@@ -253,15 +264,38 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:copen<CR>
     nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }
 
-" neocomplete {
-    let g:acp_enableAtStartup = 0
-    let g:neocomplete#enable_at_startup = 1 " Use neocomplete.
-    let g:neocomplete#enable_smart_case = 1 " Use smartcase
-    let g:neocomplete#sources#syntax#min_keyword_length = 3 " Set minimum syntax keyword length.
-" }
-" ================ Autoreload vimrc =================
-augroup reload_vimrc " {
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+" Syntastic "
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_json_checkers = ['jsonlint']
+let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+
+highlight link SysntasticErrorSign SignColumn
+highlight link SysntasticWarningSign SignColumn
+highlight link SysntasticStyleErrorStyle SignColumn
+highlight link SysntasticStyleWarningSign SignColumn
+
+" tmux-nagivator "
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
+
+" typescript "
+let g:typescript_compiler_binary = "tsc"
+let g:typescript_coiler_options = ""
+autocmd FileType typescript :set makeprg=tsc
+autocmd QuickFixCmdPost [^1]* nested cwindow
+autocmd QuickFixCmdPost    1* nested lwindow
+
+" ================ Autoreload vimrc ================= "
+augroup myvimrc
+au!
+au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
