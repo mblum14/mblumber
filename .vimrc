@@ -13,7 +13,6 @@ au FileType javascript set dictionary+=$HOME/.vim/bundle/vim-node-dict/dict/node
 behave mswin
 syntax on
 set number
-set backspace=index,eol,start
 set history=1000
 set showcmd
 set showmode
@@ -294,8 +293,8 @@ autocmd QuickFixCmdPost [^1]* nested cwindow
 autocmd QuickFixCmdPost    1* nested lwindow
 
 " ================ Autoreload vimrc ================= "
-augroup myvimrc
-au!
-au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup reload_vimrc
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
