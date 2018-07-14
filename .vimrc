@@ -263,20 +263,25 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:copen<CR>
     nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 " }
 
-" Syntastic "
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonlint']
-let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+" Syntastic replaced by ale for vim 8.1+ "
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_json_checkers = ['jsonlint']
+"let g:syntastic_javascript_eslint_exec = StrTrim(system('npm-which eslint'))
+"
+"highlight link SysntasticErrorSign SignColumn
+"highlight link SysntasticWarningSign SignColumn
+"highlight link SysntasticStyleErrorStyle SignColumn
+"highlight link SysntasticStyleWarningSign SignColumn
 
-highlight link SysntasticErrorSign SignColumn
-highlight link SysntasticWarningSign SignColumn
-highlight link SysntasticStyleErrorStyle SignColumn
-highlight link SysntasticStyleWarningSign SignColumn
+" ale "
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_completion_enabled = 1
 
 " tmux-nagivator "
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -287,7 +292,7 @@ nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
 
 " typescript "
 let g:typescript_compiler_binary = "tsc"
-let g:typescript_coiler_options = ""
+let g:typescript_compiler_options = ""
 autocmd FileType typescript :set makeprg=tsc
 autocmd QuickFixCmdPost [^1]* nested cwindow
 autocmd QuickFixCmdPost    1* nested lwindow
