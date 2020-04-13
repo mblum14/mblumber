@@ -1,0 +1,2 @@
+/Users/mblumber	40
+/Users/mblumber/.tmux/plugins/tmux-sidebar	40
