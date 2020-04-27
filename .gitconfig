@@ -56,7 +56,7 @@
   
   # remote
   r = remote -v
-  prune = remote prune origin[user]
+  prune = remote update origin --prune
 
   # rebase
   rc = rebase --continue
